@@ -1,5 +1,5 @@
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql._
+import org.apache.spark.{SparkConf, SparkContext}
 
 object SparkGrep {
 

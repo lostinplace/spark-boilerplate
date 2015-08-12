@@ -12,7 +12,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-mllib" % sparkVersion,
   "org.apache.spark" %% "spark-sql" % sparkVersion,
   "com.databricks" %% "spark-csv" % "1.1.0",
-  "com.github.scopt" %% "scopt" % "3.3.0"
+  "com.github.scopt" %% "scopt" % "3.3.0",
+  "org.skife.com.typesafe.config" % "typesafe-config" % "0.3.0"
 )
 
 assemblyMergeStrategy in assembly := {
@@ -24,4 +25,9 @@ assemblyMergeStrategy in assembly := {
   case _                                                   => MergeStrategy.first
 }
 
-assemblyOutputPath in assembly := new File("output/logdata-demo.jar")
+val projectName = scala.io.Source.fromFile(".projectname")
+val lines = try projectName.mkString finally projectName.close()
+val test = println(lines)
+
+
+assemblyOutputPath in assembly := new File(s"output/${lines}.jar")
