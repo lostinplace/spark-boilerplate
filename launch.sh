@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-spark-submit  --properties-file conf/devdefaults.conf output/logdata-demo.jar \
-  --hdfssource=hdfs://192.168.16.105 \
-  --filename=/data/elasticsearch-prod/*  \
-  --outfilename=/data/sparkgrep
+spark-submit  --properties-file conf/devdefaults.conf output/`cat .projectname`.jar \
+  --inpath:/Users/cwheeler/dev/git/registration-api-processing/data/sum.jsonl  \
+  --outpath:./dataout
